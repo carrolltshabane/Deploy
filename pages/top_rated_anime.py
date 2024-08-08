@@ -4,8 +4,8 @@ import os
 import pickle
 
 # Load the pickled files
-anime_data = pd.read_pickle('C:/Users/samuk/Desktop/Team-EG4_Streamlit/anime_data.pkl')
-ratings_data = pd.read_pickle('C:/Users/samuk/Desktop/Team-EG4_Streamlit/ratings_data.pkl')
+anime_data = pd.read_pickle('C:/Users/samuk/Desktop/Deploy/anime_data.pkl')
+ratings_data = pd.read_pickle('C:/Users/samuk/Desktop/Deploy/ratings_data.pkl')
 
 def recommend_anime_by_rating(top_n=40):  # Changed to top 30
     # Calculate average rating for each anime
