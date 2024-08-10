@@ -64,11 +64,11 @@ To run this app locally, follow these steps:
 Clone the repository:
 
 
-git clone https://github.com/samukelisiewenkosi/Team-EG4_Streamlit.git
+git clone https://github.com/carrolltshabane/Deploy
 Navigate to the project directory:
 
 
-cd Team-EG4_Streamlit
+cd deploy
 Install the required packages:
 
 
