@@ -8,12 +8,12 @@ from wordcloud import WordCloud
 
 # Import pages
 
-from pages import user_guide ,genre_recomender ,tittle_recomender,top_rated_anime ,EDA ,Teams ,FAQs
+from pages import user_guide ,genre_recomender ,tittle_recomender,EDA ,Teams ,FAQs
 
 # Define the main app function
 def main():
     st.sidebar.title("Navigation")
-    page = st.sidebar.selectbox("Go to", ['Home', 'user_guide',  'genre_recomender', 'tittle_recomender', 'top_rated_anime', 'EDA', 'Teams', 'FAQs'])
+    page = st.sidebar.selectbox("Go to", ['Home', 'user_guide',  'genre_recomender', 'tittle_recomender', 'EDA', 'Teams', 'FAQs'])
 
     if page == "Home":
         home()
@@ -30,8 +30,7 @@ def main():
         tittle_recomender.app()
     elif page == "genre_recomender":
         genre_recomender.app()
-    elif page == "top_rated_anime":
-        top_rated_anime.app()
+
 
 def home():
     # Custom CSS for styling
