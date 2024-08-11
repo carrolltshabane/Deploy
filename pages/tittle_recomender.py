@@ -9,7 +9,7 @@ import pickle
 # Load the dataset
 def load_data():
     # Ensure the correct path and file name
-    anime_df = pd.read_csv('C:/Users/samuk/Desktop/Deploy/anime.csv', encoding='latin1')
+    anime_df = pd.read_csv('C:/Users/samuk/Desktop/Team-EG4_Streamlit/anime.csv', encoding='latin1')
     return anime_df
 
 # Load datasets
@@ -79,11 +79,26 @@ def app():  # Ensure this function is named 'app'
             border-radius: 10px;
             box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
         }
+        .disclaimer {
+            font-size: 0.9em;
+            color: #f44;
+            text-align: center;
+            margin-top: 10px;
+        }
     </style>
     """, unsafe_allow_html=True)
 
     st.markdown('<div class="title">Anime Recommender System</div>', unsafe_allow_html=True)
     st.markdown('<div class="subheader">Find your next favorite anime based on a title!</div>', unsafe_allow_html=True)
+
+    # Display example titles
+    example_titles = ['Naruto', 'One Piece', 'Attack on Titan', 'My Hero Academia', 'Death Note']
+    st.markdown('<div class="recommendations"><h3>Example Titles:</h3></div>', unsafe_allow_html=True)
+    for title in example_titles:
+        st.markdown(f'<div class="recommendations">{title}</div>', unsafe_allow_html=True)
+
+    # Disclaimer
+    st.markdown('<div class="disclaimer">When searching for a title, please start each word with a capital letter.</div>', unsafe_allow_html=True)
 
     title = st.text_input('Enter the title of an anime you like:', '')
 

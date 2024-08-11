@@ -5,8 +5,8 @@ import os
 import pickle
 
 # Load the pickled files
-vectorizer = joblib.load('C:/Users/samuk/Desktop/Deploy/tfidf_vectorizer.pkl')
-anime_data = pd.read_pickle('C:/Users/samuk/Desktop/Deploy/anime_data.pkl')
+vectorizer = joblib.load('C:/Users/samuk/Desktop/Team-EG4_Streamlit/tfidf_vectorizer.pkl')
+anime_data = pd.read_pickle('C:/Users/samuk/Desktop/Team-EG4_Streamlit/anime_data.pkl')
 
 def recommend_anime_by_genre(selected_genre, top_n=10):
     # Filter anime based on selected genre
@@ -55,13 +55,23 @@ def app():  # Ensure this function is named 'app'
             border-radius: 10px;
             box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
         }
+        .disclaimer {
+            font-size: 0.9em;
+            color: #f44;
+            text-align: center;
+            margin-top: 10px;
+        }
     </style>
     """, unsafe_allow_html=True)
 
     st.markdown('<div class="title">Genre-Based Anime Recommender System</div>', unsafe_allow_html=True)
     st.markdown('<div class="subheader">Find anime based on your favorite genre!</div>', unsafe_allow_html=True)
 
-    genre = st.text_input('Enter a genre you like:', '')
+    # List of available genres
+    genres = ['Action', 'Adventure', 'Comedy', 'Drama', 'Fantasy', 'Horror', 'Mystery', 'Romance', 'Sci-Fi', 'Slice of Life']
+    genre = st.selectbox('Select a genre:', genres)
+
+    st.markdown('<div class="disclaimer">Please start the genre name with a capital letter.</div>', unsafe_allow_html=True)
 
     if genre:
         recommendations = recommend_anime_by_genre(genre)
@@ -72,4 +82,4 @@ def app():  # Ensure this function is named 'app'
             for _, row in recommendations.iterrows():
                 st.markdown(f'<div class="recommendations">{row["name"]} (Rating: {row["rating"]})</div>', unsafe_allow_html=True)
     else:
-        st.markdown('<div class="recommendations">Please enter a genre to get recommendations.</div>', unsafe_allow_html=True)
+        st.markdown('<div class="recommendations">Please select a genre to get recommendations.</div>', unsafe_allow_html=True)
